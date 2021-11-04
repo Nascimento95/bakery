@@ -17,7 +17,7 @@ class App extends React.Component{
     this.addItem = this.addItem.bind(this)
     this.suprimList = this.suprimList.bind(this)
   }
-  // function qui recupère le state name et price de add.js qui sont passer en paramètre dans la fonction (addItems) de add.js et les push  dans tableau de state.items
+  // function qui recupère le state name et price de add.js qui sont passer en paramètre dans la fonction (addItems) de add.js et les push  dans tableau de state.items (remonter de donnée)
   addItem(name, price) {
     let objet = {
       name: name ,
@@ -25,7 +25,7 @@ class App extends React.Component{
     }
     this.setState({items: [objet,...this.state.items]})
   }
-
+  // function qui recupère une string en paramètre qui la props text de button.js et la met dans active.tab
   handleButtonClick(str) {
     this.setState({activeTab: str})
   }
@@ -42,10 +42,8 @@ class App extends React.Component{
 
       const selected = this.state.activeTab;
     return(
-      <>
-      
-        <h1>salut</h1>
-        
+      <div className="container">
+        <h1 className="text-center">Bakery</h1>
         <Button 
           text="Add"
           handleClick ={this.handleButtonClick} 
@@ -64,7 +62,7 @@ class App extends React.Component{
         {selected ==="Add" && <Add addItem={this.addItem} />}
         {selected ==="List" && <List suprim={this.suprimList} items={this.state.items} />}
         {selected ==="Pay" && <Pay />}
-      </>
+      </div>
     )
   }
 }

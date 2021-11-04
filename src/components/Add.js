@@ -27,10 +27,25 @@ class Add extends React.Component{
     return(
         <>
             <h1>Add</h1>
-            <input onChange={this.handleNameChange} type="text" className="form-control" placeholder="rentre du text " />
-            <input onChange={this.handlePriceChange} type="range" className="form-range"  min="1" max="10"></input>
+            <input 
+                onChange={this.handleNameChange} 
+                type="text" className="form-control" 
+                placeholder="rentrez du text svp ... " 
+                value={name}
+            />
+            <label className="form-label">Le prix : {price} € </label>
+            <input 
+                onChange={this.handlePriceChange} 
+                type="range" className="form-range"
+                value={price}  
+                min="1" 
+                max="10"
+            />
             <span>{price} </span>
-            <button onClick={() => this.props.addItem(name,price)} type="button" className="btn btn-primary">ok</button>
+            <button 
+                onClick={() => this.props.addItem(name,price)} 
+                type="button" 
+                className="btn btn-primary">ok</button>
         </>
                     
     )
